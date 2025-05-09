@@ -1,0 +1,103 @@
+[gd_scene load_steps=12 format=3 uid="uid://rkn8stwxw2ru"]
+
+[ext_resource type="Script" uid="uid://c1ofu2iv86h5c" path="res://scenes/main.gd" id="1_lhr70"]
+[ext_resource type="Script" uid="uid://om8ecgatox4l" path="res://scripts/card_manager.gd" id="1_uu6xs"]
+[ext_resource type="Script" uid="uid://t73s7yl2xf02" path="res://scripts/player_hand.gd" id="3_cm0pq"]
+[ext_resource type="PackedScene" uid="uid://dxrla00u12jos" path="res://scenes/card_slot.tscn" id="3_r0du0"]
+[ext_resource type="Texture2D" uid="uid://c52awhent4wje" path="res://assets/Deck.png" id="4_rarhs"]
+[ext_resource type="Script" uid="uid://cdynao6705hjp" path="res://scenes/deck.gd" id="4_vcsgt"]
+[ext_resource type="Script" uid="uid://c82t23ktveavh" path="res://scenes/input_manager.gd" id="6_c01mt"]
+[ext_resource type="Script" uid="uid://vucaef8q0bjp" path="res://scenes/souls_ui.gd" id="7_nxtc6"]
+[ext_resource type="Script" uid="uid://c0risrrjvqvc4" path="res://scripts/souls_manager.gd" id="8_jlsqs"]
+[ext_resource type="Script" uid="uid://c3s6hfdittu55" path="res://scripts/turn_manager.gd" id="9_q8u5g"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vcsgt"]
+size = Vector2(181, 265)
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_lhr70")
+
+[node name="BattleMessage" type="Label" parent="."]
+visible = false
+offset_left = 785.0
+offset_top = 337.0
+offset_right = 825.0
+offset_bottom = 404.0
+theme_override_font_sizes/font_size = 23
+text = "Luta Iniciada"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="SoulsUI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 635.0
+offset_top = 122.0
+offset_right = 973.0
+offset_bottom = 344.0
+script = ExtResource("7_nxtc6")
+
+[node name="SoulsLabel" type="Label" parent="SoulsUI"]
+layout_mode = 0
+offset_left = 47.0
+offset_top = 73.0
+offset_right = 375.0
+offset_bottom = 252.0
+
+[node name="CardManager" type="Node2D" parent="."]
+script = ExtResource("1_uu6xs")
+
+[node name="CardSlot" parent="." instance=ExtResource("3_r0du0")]
+position = Vector2(1667, 890)
+
+[node name="PlayerHand" type="Node2D" parent="."]
+script = ExtResource("3_cm0pq")
+
+[node name="Deck" type="Node2D" parent="."]
+position = Vector2(150, 890)
+script = ExtResource("4_vcsgt")
+
+[node name="DeckImage" type="Sprite2D" parent="Deck"]
+texture = ExtResource("4_rarhs")
+
+[node name="Area2D" type="Area2D" parent="Deck"]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Deck/Area2D"]
+position = Vector2(-0.5, -0.5)
+shape = SubResource("RectangleShape2D_vcsgt")
+
+[node name="Counter" type="RichTextLabel" parent="Deck"]
+modulate = Color(0, 0, 0, 1)
+offset_left = -9.0
+offset_top = -28.0
+offset_right = 31.0
+offset_bottom = 12.0
+scale = Vector2(2, 2)
+text = "0"
+
+[node name="InputManager" type="Node2D" parent="."]
+script = ExtResource("6_c01mt")
+
+[node name="SoulsManager" type="Node" parent="."]
+script = ExtResource("8_jlsqs")
+
+[node name="TurnManager" type="Node" parent="."]
+script = ExtResource("9_q8u5g")
+
+[node name="EndTurnButton" type="Button" parent="."]
+offset_left = 1801.0
+offset_top = 986.0
+offset_right = 1879.0
+offset_bottom = 1017.0
+text = "End Turn"
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 785.0
+offset_top = 337.0
+offset_right = 1056.0
+offset_bottom = 503.0

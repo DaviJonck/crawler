@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://dokmt6jxdgln3"]
+
+[ext_resource type="Script" uid="uid://xl04ojmim3uy" path="res://scripts/card.gd" id="1_hael8"]
+[ext_resource type="Texture2D" uid="uid://bh0yk77aicx46" path="res://assets/some-more-goblin-auction-final-card-art-v0-n7oyerlsq74c1 (1).png" id="2_hael8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hael8"]
+size = Vector2(216, 305)
+
+[node name="Card" type="Node2D"]
+z_index = -2
+position = Vector2(150, 890)
+script = ExtResource("1_hael8")
+
+[node name="CardImage" type="Sprite2D" parent="."]
+texture = ExtResource("2_hael8")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 1.5)
+shape = SubResource("RectangleShape2D_hael8")
+
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]
