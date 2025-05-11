@@ -6,6 +6,7 @@ extends Node2D  # Ou o tipo correto do seu nó Main
 @onready var card_slot = $CardSlot
 @onready var battle_message = $BattleMessage
 @onready var message_timer = $BattleMessage/Timer 
+@onready var dungeon_ui = $DungeonUI
 
 func _ready():
 	# Configurações iniciais
@@ -14,29 +15,22 @@ func _ready():
 	update_ui()
 
 func _on_end_turn_button_pressed():
-	# Desabilita botão durante a transição
+	# Desabilita o botão
 	$EndTurnButton.disabled = true
 	
-	# 1. Adiciona +1 alma
+	# 1. Adiciona +1 alma (NÃO gasta mais almas aqui)
 	SoulsManager.add_souls(1)
 	
-	# 2. Compra +1 carta
-	if $Deck.draw_card():
-		print("Carta comprada com sucesso!")
-	else:
-		print("Deck vazio - não foi possível comprar carta")
+	# 2. Compra nova carta
+	$Deck.draw_card()
 	
-	# 3. Mostra mensagem de luta
+	# 3. Mostra mensagem e atualiza UI
 	show_battle_message()
-	
-	# 4. Atualiza UI
 	$SoulsUI.update_souls_display(SoulsManager.current_souls)
 	
-	# 5. Reativa o botão após animações
+	# 4. Reativa o botão
 	await get_tree().create_timer(1.0).timeout
 	$EndTurnButton.disabled = false
-	$Deck.reset_draw()
-
 func show_battle_message():
 	battle_message.visible = true
 	battle_message.modulate.a = 1.0  # Garante visível
@@ -53,3 +47,6 @@ func _on_souls_updated(new_amount):
 
 func update_ui():
 	souls_ui.update_souls_display(SoulsManager.current_souls)
+	
+func _on_enemy_defeated():
+	dungeon_ui.level_up()

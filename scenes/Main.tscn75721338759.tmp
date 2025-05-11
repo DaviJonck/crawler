@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://rkn8stwxw2ru"]
+[gd_scene load_steps=12 format=3 uid="uid://rkn8stwxw2ru"]
 
 [ext_resource type="Script" uid="uid://c1ofu2iv86h5c" path="res://scenes/main.gd" id="1_lhr70"]
 [ext_resource type="Script" uid="uid://om8ecgatox4l" path="res://scripts/card_manager.gd" id="1_uu6xs"]
@@ -10,9 +10,6 @@
 [ext_resource type="Script" uid="uid://vucaef8q0bjp" path="res://scenes/souls_ui.gd" id="7_nxtc6"]
 [ext_resource type="Script" uid="uid://c0risrrjvqvc4" path="res://scripts/souls_manager.gd" id="8_jlsqs"]
 [ext_resource type="Script" uid="uid://c3s6hfdittu55" path="res://scripts/turn_manager.gd" id="9_q8u5g"]
-[ext_resource type="Script" uid="uid://1wt2y774o2ei" path="res://scenes/dungeon_ui.gd" id="11_wp0k4"]
-[ext_resource type="PackedScene" uid="uid://b8cvqv5eeebu1" path="res://scenes/souls_message.tscn" id="12_bjd11"]
-[ext_resource type="Script" uid="uid://dcc25exeudjeu" path="res://scenes/hero_ui.gd" id="13_qmy6f"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vcsgt"]
 size = Vector2(181, 265)
@@ -43,11 +40,10 @@ script = ExtResource("7_nxtc6")
 
 [node name="SoulsLabel" type="Label" parent="SoulsUI"]
 layout_mode = 0
-offset_left = 1134.0
-offset_top = 819.0
-offset_right = 1268.0
-offset_bottom = 872.0
-horizontal_alignment = 1
+offset_left = 47.0
+offset_top = 73.0
+offset_right = 375.0
+offset_bottom = 252.0
 
 [node name="CardManager" type="Node2D" parent="."]
 script = ExtResource("1_uu6xs")
@@ -105,69 +101,3 @@ offset_left = 785.0
 offset_top = 337.0
 offset_right = 1056.0
 offset_bottom = 503.0
-
-[node name="DungeonUI" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_left = 1275.0
-offset_top = 285.0
-offset_right = 1558.0
-offset_bottom = 561.0
-script = ExtResource("11_wp0k4")
-
-[node name="Panel" type="Panel" parent="DungeonUI"]
-layout_mode = 0
-offset_right = 207.0
-offset_bottom = 271.0
-
-[node name="VBoxContainer" type="VBoxContainer" parent="DungeonUI"]
-layout_mode = 0
-offset_right = 205.0
-offset_bottom = 269.0
-alignment = 1
-
-[node name="HP" type="Label" parent="DungeonUI/VBoxContainer"]
-layout_mode = 2
-
-[node name="ATK" type="Label" parent="DungeonUI/VBoxContainer"]
-layout_mode = 2
-
-[node name="DEF" type="Label" parent="DungeonUI/VBoxContainer"]
-layout_mode = 2
-
-[node name="LEVEL" type="Label" parent="DungeonUI/VBoxContainer"]
-layout_mode = 2
-
-[node name="HeroUI" type="Control" parent="DungeonUI"]
-layout_mode = 3
-anchors_preset = 0
-offset_left = 1275.0
-offset_top = 285.0
-offset_right = 1558.0
-offset_bottom = 561.0
-script = ExtResource("13_qmy6f")
-
-[node name="Panel" type="Panel" parent="DungeonUI/HeroUI"]
-layout_mode = 0
-offset_right = 207.0
-offset_bottom = 271.0
-
-[node name="VBoxContainer" type="VBoxContainer" parent="DungeonUI/HeroUI"]
-layout_mode = 0
-offset_right = 205.0
-offset_bottom = 269.0
-alignment = 1
-
-[node name="HP" type="Label" parent="DungeonUI/HeroUI/VBoxContainer"]
-layout_mode = 2
-
-[node name="ATK" type="Label" parent="DungeonUI/HeroUI/VBoxContainer"]
-layout_mode = 2
-
-[node name="DEF" type="Label" parent="DungeonUI/HeroUI/VBoxContainer"]
-layout_mode = 2
-
-[node name="LEVEL" type="Label" parent="DungeonUI/HeroUI/VBoxContainer"]
-layout_mode = 2
-
-[node name="SoulsMessage" parent="." instance=ExtResource("12_bjd11")]

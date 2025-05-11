@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bh0yk77aicx46"
-path="res://.godot/imported/some-more-goblin-auction-final-card-art-v0-n7oyerlsq74c1 (1).png-09d8016a6c297cba68e6ff8b38e605b7.ctex"
+path="res://.godot/imported/goblin.png-25cf4f26af04034060a8345cd231dcdb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/some-more-goblin-auction-final-card-art-v0-n7oyerlsq74c1 (1).png"
-dest_files=["res://.godot/imported/some-more-goblin-auction-final-card-art-v0-n7oyerlsq74c1 (1).png-09d8016a6c297cba68e6ff8b38e605b7.ctex"]
+source_file="res://assets/cards/goblin.png"
+dest_files=["res://.godot/imported/goblin.png-25cf4f26af04034060a8345cd231dcdb.ctex"]
 
 [params]
 

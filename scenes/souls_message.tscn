@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://b8cvqv5eeebu1"]
+
+[ext_resource type="Script" uid="uid://cxsrswcpoad2o" path="res://scenes/souls_message.gd" id="1_q6cfr"]
+
+[node name="SoulsMessage" type="Node2D"]
+script = ExtResource("1_q6cfr")
+
+[node name="TextLabel" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0

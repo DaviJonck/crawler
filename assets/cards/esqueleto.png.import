@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bgdf2aam77f4u"
-path="res://.godot/imported/goblin (1).png-b4b47c38a31e386f8878f2cc148a9ac0.ctex"
+uid="uid://b61fdxgf23j5j"
+path="res://.godot/imported/esqueleto.png-a0a31e468ca2ec047379b2bc8d67b6ee.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/goblin (1).png"
-dest_files=["res://.godot/imported/goblin (1).png-b4b47c38a31e386f8878f2cc148a9ac0.ctex"]
+source_file="res://assets/cards/esqueleto.png"
+dest_files=["res://.godot/imported/esqueleto.png-a0a31e468ca2ec047379b2bc8d67b6ee.ctex"]
 
 [params]
 
